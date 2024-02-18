@@ -1,13 +1,14 @@
-const { Router } = require("express");
+const { Router } = require('express');
+
+const UserController = require('./controller/UserController')
 
 // Contém todos os métodos HTTP
 const router = Router()
 
 
-// Testando as rotas
-router.get('/', (req, res) =>{
-       res.json({teste:'rotas'})
-})
+// Create
+router.post('/create',UserController.createUser)
+router.put('/update/:id',UserController.updateUser)
 
 
 
