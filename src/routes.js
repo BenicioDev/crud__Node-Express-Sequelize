@@ -1,19 +1,14 @@
 const { Router } = require('express');
-const User = require('./models/User')
+
+const UserController = require('./controller/UserController')
 
 // Contém todos os métodos HTTP
 const router = Router()
 
 
 // Create
-router.post('/', async (req, res) =>{
-       const {name, email, telefone} = req.body
-
-       const user = await User.create({name, email, telefone})
-
-       res.json({user})
-
-})
+router.post('/create',UserController.createUser)
+router.put('/update/:id',UserController.updateUser)
 
 
 
