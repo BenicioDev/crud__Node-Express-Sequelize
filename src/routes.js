@@ -1,12 +1,18 @@
-const { Router } = require("express");
+const { Router } = require('express');
+const User = require('./models/User')
 
 // Contém todos os métodos HTTP
 const router = Router()
 
 
-// Testando as rotas
-router.get('/', (req, res) =>{
-       res.json({teste:'rotas'})
+// Create
+router.post('/', async (req, res) =>{
+       const {name, email, telefone} = req.body
+
+       const user = await User.create({name, email, telefone})
+
+       res.json({user})
+
 })
 
 

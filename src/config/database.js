@@ -5,7 +5,7 @@ module.exports = {
        password: '1335400',
        database: 'crud-projeto',
        define:{
-              timestamp: true,
+              timestamps: true,
               underscored: true,
        }
 }
