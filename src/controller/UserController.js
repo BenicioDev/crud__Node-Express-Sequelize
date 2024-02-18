@@ -1,3 +1,4 @@
+const { where } = require('sequelize')
 const User = require('../models/User')
 
 module.exports = {
@@ -38,7 +39,39 @@ module.exports = {
                      res.status(400).json({ error })
               }
 
+       },
+
+       // Read
+       async listUsers(req, res) {
+              try {
+                     const users = await User.findAll()
+                     res.status(200).json({ users })
+              } catch (error) {
+                     res.status(400).json({ error })
+              }
+
+       },
+
+       // Delete
+       async deleteUser(req, res) {
+              try {
+                     const { id } = req.params
+
+                     const user = await User.findOne({ where: { id } })
+
+                     if (!user) {
+                            res.status(401).json({ message: 'Usuário não existe.' })
+                     } else {
+                            const user = await User.destroy({ where: { id } })
+                            res.status(200).json({ ok: true })
+                     }
+              } catch (error) {
+                     res.status(400).json({ error })
+              }
+
+
        }
+
 
 
 }
