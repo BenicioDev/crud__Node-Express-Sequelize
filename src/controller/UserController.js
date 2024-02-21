@@ -1,13 +1,24 @@
 const { where } = require('sequelize')
 const User = require('../models/User')
 
+const bcrypt = require('bcrypt')
+
+const salt = bcrypt.genSaltSync(10);//Geração de um "sal" com custo de processamento 1
+
+
+
 module.exports = {
        // Create
        async createUser(req, res) {
               try {
-                     const { name, email, telefone } = req.body
+                     
+                     const { name, email, telefone, senha} = req.body
 
-                     const user = await User.create({ name, email, telefone })
+                     // Encriptando senha
+                     const senhaEncript = await bcrypt.hash(senha, salt)
+                     
+
+                     const user = await User.create({ name, email, telefone, senha:senhaEncript })
 
                      res.status(200).json({ user })
               } catch (error) {
@@ -25,14 +36,14 @@ module.exports = {
                      const { id } = req.params
 
                      // alterar
-                     const { name, email, telefone } = req.body
+                     const { name, email, telefone, senha } = req.body
 
                      const user = await User.findOne({ where: { id } })
 
                      if (!user) {
                             res.status(401).json({ message: "Id não encontrado." })
                      } else {
-                            const user = await User.update({ name, email, telefone }, { where: { id } })
+                            const user = await User.update({ name, email, telefone, senha }, { where: { id } })
                             res.status(200).json({ user })
                      }
               } catch (error) {
