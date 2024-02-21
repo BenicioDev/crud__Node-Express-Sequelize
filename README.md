@@ -1,11 +1,11 @@
 # Crud com rotas utilizando Node, Express e Sequelize.
 
 ### Dependências instaladas:
-  	-express: - v4.18.2
-  	-sequelize-cli: - v6.6.2
-  	-sequelize: - v6.37.1
-  	-mysql2: - v3.9.1
-  	-nodemon: - v3.0.3
+  	-express: v4.18.2
+  	-sequelize-cli: v6.6.2
+  	-sequelize: v6.37.1
+  	-mysql2: v3.9.1
+  	-nodemon: v3.0.3
    	-bcrypt: v5.1.1
 
 <hr>
