@@ -1,5 +1,7 @@
 'use strict';
 
+// npx sequelize db:migrate (migra para o banco de dados após alteração)
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
    up: (queryInterface, Sequelize) => {
@@ -22,6 +24,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      senha : {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+
 
       created_at: {
         type: Sequelize.DATE,
