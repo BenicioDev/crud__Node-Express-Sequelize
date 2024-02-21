@@ -1,11 +1,12 @@
 # Crud com rotas utilizando Node, Express e Sequelize.
 
 ### Dependências instaladas:
-  	´-Express - v4.18.2´
-  	-Sequelize-cli - v6.6.2
-  	-Sequelize - v6.37.1
-  	-Mysql2 - v3.9.1
-  	-Nodemon - v3.0.3
+  	-express: - v4.18.2
+  	-sequelize-cli: - v6.6.2
+  	-sequelize: - v6.37.1
+  	-mysql2: - v3.9.1
+  	-nodemon: - v3.0.3
+   	-bcrypt: v5.1.1
 
 <hr>
 
@@ -15,8 +16,10 @@
 ![Node](https://img.shields.io/badge/Node-007396?style=for-the-badge&logo=Node)&nbsp;
 ![Express](https://img.shields.io/badge/Express-007396?style=for-the-badge&logo=Express)&nbsp;
 ![Sequelize](https://img.shields.io/badge/Sequelize-007396?style=for-the-badge&logo=Sequelize)&nbsp;
+![bcrypt](https://img.shields.io/badge/bcrypt-007396?style=for-the-badge&logo=bcrypt)&nbsp;
 ![mysql](https://img.shields.io/badge/mysql-007396?style=for-the-badge&logo=mysql)&nbsp;
 ![Nodemon](https://img.shields.io/badge/Nodemon-007396?style=for-the-badge&logo=Nodemon)&nbsp;
+![npm](https://img.shields.io/badge/npm-007396?style=for-the-badge&logo=npm)&nbsp;
 
 <hr>
 
@@ -47,4 +50,9 @@
 
 #### 7º commit
     - Criando o método get e delete para listar ou deletar o(s) usuário(s) e criando sua rota.
+
+#### 8º commit - IMPLEMENTAÇÃO
+    - Encriptando senhas dos métodos Create e Update com a biblioteca bcrypt.
+
+
 
