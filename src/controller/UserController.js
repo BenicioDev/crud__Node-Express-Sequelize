@@ -7,18 +7,19 @@ const salt = bcrypt.genSaltSync(10);//Geração de um "sal" com custo de process
 
 
 
+
 module.exports = {
        // Create
        async createUser(req, res) {
               try {
                      
+                     
                      const { name, email, telefone, senha} = req.body
 
                      // Encriptando senha
-                     const senhaEncript = await bcrypt.hash(senha, salt)
-                     
+                     const senhaEncriptCreate = await bcrypt.hash(senha, salt)
 
-                     const user = await User.create({ name, email, telefone, senha:senhaEncript })
+                     const user = await User.create({ name, email, telefone, senha:senhaEncriptCreate })
 
                      res.status(200).json({ user })
               } catch (error) {
@@ -37,13 +38,15 @@ module.exports = {
 
                      // alterar
                      const { name, email, telefone, senha } = req.body
+                     
+                     const senhaEncriptUpdate = await bcrypt.hash(senha, salt)
 
                      const user = await User.findOne({ where: { id } })
 
                      if (!user) {
                             res.status(401).json({ message: "Id não encontrado." })
                      } else {
-                            const user = await User.update({ name, email, telefone, senha }, { where: { id } })
+                            const user = await User.update({ name, email, telefone, senha:senhaEncriptUpdate }, { where: { id } })
                             res.status(200).json({ user })
                      }
               } catch (error) {
